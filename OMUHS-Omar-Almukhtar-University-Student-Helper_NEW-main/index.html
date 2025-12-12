@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>OMUHS - Student Helper</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        /* لوحة الإعلانات */
+        .ann-box {
+            width: 92%;
+            margin: 20px auto;
+            background: #001d3d;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+            position: relative;
+            color: white;
+            font-family: "Tahoma";
+        }
+
+        .ann-header {
+            background: #ffb703;
+            color: #000;
+            font-weight: bold;
+            font-size: 22px;
+            padding: 8px 0;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .ann-slider {
+            height: 130px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            text-align: center;
+            font-size: 21px;
+            line-height: 1.7;
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ann-ticker {
+            width: 100%;
+            background: #003566;
+            padding: 8px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            font-size: 18px;
+        }
+
+        .ann-ticker span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: ticker 30s linear infinite;
+        }
+
+        @keyframes ticker {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+
+        /* صندوق بيانات الطالب */
+        .student-info {
+            width: 300px;
+            background: #001d3d;
+            color: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 0 16px rgba(0, 0, 0, 0.4);
+            margin: 10px auto;
+            text-align: center;
+            font-family: "Tahoma";
+            display: none;
+        }
+
+        .student-info h3 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .student-info p {
+            margin: 6px 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- شاشة البداية -->
+    <div class="splash" id="splash">
+        <img src="logo.png" class="splash-logo" />
+        <h1 class="splash-title">OMUHS</h1>
+        <p class="splash-sub">HELPER STUDENT</p>
+    </div>
+
+    <!-- شاشة تسجيل الدخول -->
+    <div class="login-page" id="loginPage">
+        <div class="login-start" id="startBtn">اضغط هنا للبدء</div>
+
+        <div class="login-box" id="loginBox">
+            <img src="logo.png" class="login-logo" />
+            <div class="input-field">
+                <input type="text" id="studentID" required />
+                <label>رقمك الدراسي</label>
+            </div>
+            <button id="loginBtn">دخول</button>
+            
+        </div>
+    </div>
+
+    <!-- صفحة الأقسام -->
+    <div class="departments-page" id="departmentsPage">
+
+        <!-- لوحة الإعلانات -->
+        <div class="ann-box">
+            <div class="ann-header">إعلان عاجل</div>
+            <div id="annSlider" class="ann-slider"></div>
+            <div class="ann-ticker">
+                <span id="tickerText"></span>
+            </div>
+        </div>
+
+        <!-- مربع معلومات الطالب -->
+        <div class="student-info" id="studentInfo">
+            <h3 id="siName"></h3>
+            <p id="siGPA"></p>
+            <p id="siWarnings"></p>
+            <p id="siCompleted"></p>
+        </div>
+
+        <h1 class="page-title">أقسام كلية العلوم</h1>
+        <div class="departments-container">
+            <div class="department active" data-dept="cs">
+                <a href="#subjectsPage" style="text-decoration: none; color: inherit;">علوم الحاسوب</a>
+            </div>
+            <div class="department coming">علوم الحيوان</div>
+            <div class="department coming">علوم البحار</div>
+            <div class="department coming">الرياضيات</div>
+            <div class="department coming">الفيزياء</div>
+            <div class="department coming">الكيمياء</div>
+        </div>
+
+    </div>
+
+    <!-- صفحة المواد -->
+    <div class="subjects-page" id="subjectsPage">
+
+        <h1 class="page-title">Computer Science Subjects</h1>
+        <div class="subjects-container">
+
+            <div class="subject">
+                <h2>Internet Programming</h2>
+                <a href="assets/computer_science/internet_programming/1.pdf" target="_blank">درس 1</a><br>
+                <a href="assets/computer_science/internet_programming/2.pdf" target="_blank">درس 2</a><br>
+                <a href="assets/computer_science/internet_programming/3.pdf" target="_blank">درس 3</a>
+            </div>
+
+            <div class="subject">
+                <h2>Data Structures</h2>
+                <a href="assets/computer_science/data_structures/1.pdf" target="_blank">درس 1</a><br>
+                <a href="assets/computer_science/data_structures/2.pdf" target="_blank">درس 2</a><br>
+                <a href="assets/computer_science/data_structures/3.pdf" target="_blank">درس 3</a>
+            </div>
+
+            <div class="subject">
+                <h2>System Analysis & Design</h2>
+                <a href="assets/computer_science/system__analyzing_and_design/1.pdf" target="_blank">درس 1</a><br>
+                <a href="assets/computer_science/system__analyzing_and_design/2.pdf" target="_blank">درس 2</a><br>
+                <a href="assets/computer_science/system__analyzing_and_design/3.pdf" target="_blank">درس 3</a>
+            </div>
+
+            <div class="subject coming"><h2>Programming OOP 2</h2><p>قريبًا</p></div>
+            <div class="subject coming"><h2>Islaimc Studies</h2><p>قريبًا</p></div>
+            <div class="subject coming"><h2>Discrete Math & Structures</h2><p>قريبًا</p></div>
+            
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- سكربت لوحة الإعلانات -->
+    <script>
+        const announcementsMain = [
+            "على الطالب صاحب الرقم الدراسي: 223986 الحضور أمام المجلس التأديبي يوم 15-12-2025",
+            "تنبيه لطلبة مقرر برمجة الإنترنت : الامتحان النهائي يوم 13-01-2026 الساعة 10 صباحاً",
+            "فتح التسجيل في دورة الأمن السيبراني المقاعد محدودة",
+            "تنويه: سيتم إيقاف النظام الأكاديمي الخميس من 12 ليلاً إلى 6 صباحاً",
+            "على جميع الطلبة تحديث بياناتهم قبل 31-12-2025."
+        ];
+
+        const tickerNews = [
+            "إعلان جديد: تم توفير محاضرات إضافية في مكتبة الكلية",
+            "خبر هام: بداية تسجيل مواد الفصل الربيعي الأسبوع القادم",
+            "عاجل: اجتماع مهم لطلبة السنة الثاللثة يوم الأربعاء",
+            "تنبيه: يرجى متابعة الموقع باستمرار لآخر المستجدات",
+            "خدمة جديدة: إضافة خانة للواجبات الأسبوعية داخل النظام"
+        ];
+
+        let index = 0;
+        const slider = document.getElementById("annSlider");
+        const ticker = document.getElementById("tickerText");
+
+        function showAnnouncement() {
+            slider.style.opacity = 0;
+            setTimeout(() => {
+                slider.innerHTML = announcementsMain[index];
+                slider.style.animation = "none";
+                void slider.offsetWidth;
+                slider.style.animation = "fadeIn 1s ease forwards";
+                index = (index + 1) % announcementsMain.length;
+            }, 300);
+        }
+
+        showAnnouncement();
+        setInterval(showAnnouncement, 6000);
+
+        ticker.innerHTML = tickerNews.join("   |   ");
+    </script>
+
+    <!-- سكربت بيانات الطالب -->
+    <script>
+        const students = {
+            "223986": { name: "إيهاب سليمان سليمان", gpa: 3.45, warnings: 0, completed: 12 },
+            "223987": { name: "محمد علي أحمد", gpa: 2.91, warnings: 1, completed: 10 },
+            "223988": { name: "سارة عبدالرحمن إبراهيم", gpa: 3.12, warnings: 0, completed: 14 },
+            "223989": { name: "مصطفى عمر سالم", gpa: 2.44, warnings: 2, completed: 8 }
+        };
+
+        document.getElementById("loginBtn").onclick = function () {
+            const id = document.getElementById("studentID").value.trim();
+            document.getElementById("loginPage").style.display = "none";
+            document.getElementById("departmentsPage").style.display = "block";
+
+            const info = students[id];
+            const box = document.getElementById("studentInfo");
+
+            document.getElementById("siName").innerHTML = info ? "الاسم: " + info.name : "الاسم: غير معروف";
+            document.getElementById("siGPA").innerHTML = info ? "المعدل التراكمي: " + info.gpa : "المعدل التراكمي: -";
+            document.getElementById("siWarnings").innerHTML = info ? "الإنذارات: " + info.warnings : "الإنذارات: -";
+            document.getElementById("siCompleted").innerHTML = info ? "المقررات المنجزة: " + info.completed : "المقررات المنجزة: -";
+
+            box.style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
